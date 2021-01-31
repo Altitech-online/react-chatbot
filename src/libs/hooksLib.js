@@ -1,6 +1,5 @@
 
-import { makeStyles } from '@material-ui/core/styles';
-import { BsFillExclamationDiamondFill } from "react-icons/bs";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,7 +48,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: "auto",
   },
   create: {
-    padding: "10px",
+   
   },
   messageContent: {
     height: "20vh",
@@ -57,5 +56,33 @@ export const useStyles = makeStyles((theme) => ({
   messages: {
     border: "1px black solid",
     height: "70vh",
+    justifyContent: "space-between",
   },
+  question: {
+    border: "0px black solid",
+    borderRadius: "15px",
+    alignSelf: "flex-end",
+    height: "10vh",
+    margin: "auto",
+    padding: "1em",
+    textAlign: "right",
+    verticleAlign: "middle",
+    wordWrap: "break-word",
+    overflowY: "auto"
+  },
+  answer: {
+    border: "0px black solid",
+    borderRadius: "15px",
+    alignSelf: "flex-end",
+    height: "10vh",
+    margin: "auto",
+    padding: "1em",
+    textAlign: "left",
+    verticleAlign: "middle",
+    wordWrap: "break-word",
+    overflowY: "auto"
+  },
+  character: {
+    height: "45vh"
+  }
 }));

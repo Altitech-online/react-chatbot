@@ -21,8 +21,7 @@ export default function Navbar() {
       onChange={handleChange}
       showLabels={true}
     >
-      <BottomNavigationAction label="Home" value="/" component={Link} to="/" />
-      {!isAuthenticated && (
+     {!isAuthenticated && (
         <BottomNavigationAction
           label="Login"
           value="/login"
@@ -30,14 +29,6 @@ export default function Navbar() {
           to="/login"
         />
       )}
-      {/* {!isAuthenticated && (
-        <BottomNavigationAction
-          label="Sign up"
-          value="/signup"
-          component={Link}
-          to="/signup"
-        />
-      )} */}
       {isAuthenticated && (
         <BottomNavigationAction
           label="Log out"
@@ -45,6 +36,9 @@ export default function Navbar() {
           component={Link}
           to="/logout"
         />
+      )}
+      {isAuthenticated && (
+      <BottomNavigationAction label="Chat" value="/" component={Link} to="/" />
       )}
     </BottomNavigation>
   );

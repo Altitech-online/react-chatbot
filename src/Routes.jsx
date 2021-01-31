@@ -16,9 +16,9 @@ export default function Routes() {
   return (
     <Suspense fallback={renderLoading()}>
       <Switch>
-        <Route exact path="/">
+        <AuthenticatedRoute exact path="/">
           <Home />
-        </Route>
+        </AuthenticatedRoute>
         <UnauthenticatedRoute exact path="/login">
           <Login />
         </UnauthenticatedRoute>
