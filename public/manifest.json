@@ -1,0 +1,8 @@
+{
+  "short_name": "Serverless chat bot",
+  "name": "A Serverless chat bot",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
