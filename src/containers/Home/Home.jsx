@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { API, Storage } from "aws-amplify";
-import Typography from "@material-ui/core/Typography";
+import { API } from "aws-amplify";
 import Container from "@material-ui/core/Container";
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import { Link } from "react-router-dom";
-import { BsPencilSquare } from "react-icons/bs";
+import LoaderButton from "../../components/LoaderButton/LoaderButton";
+import { TextInput } from "../../components/Form/Form";
 import { useAppContext } from "../../libs/contextLib";
 import { onError } from "../../libs/errorLib";
 import { useStyles } from "../../libs/hooksLib";
 
 export default function Home() {
-  const [notes, setNotes] = useState([]);
-  const { isAuthenticated } = useAppContext();
+  const [sentiment, setSentiment] = useState("NEUTRAL")
+  const [message, setMessage] = useState("");
+  const [answer, setAnswer] = useState();
+  const [session, setSession] = useState();
+  const [allMessages, setAllMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated } = useAppContext();
   const classes = useStyles();
 
   useEffect(() => {
@@ -22,28 +22,51 @@ export default function Home() {
       if (!isAuthenticated) {
         return;
       }
-
       try {
-        const notes = await loadNotes();
-        setNotes(notes);
-        console.log(notes);
+
       } catch (e) {
         onError(e);
       }
-
       setIsLoading(false);
     }
-
     onLoad();
   }, [isAuthenticated]);
 
-  const loadNotes = () => {
-    return API.post("chatbot", "/message", {
+  const handleClick = async () => {
+    setIsLoading(true);
+    const botResponse = await API.post("chatbot", "/message", {
       body: {
-        message: "f off",
+        message,
+        sessionId: session,
       },
     });
+    setAnswer(botResponse.generic[0].text);
+    setSession(botResponse.session);
+    console.log(botResponse)
+    setSentiment(botResponse.Sentiment);
+    setIsLoading(false);
   };
 
-  return <Container className={classes.content}>hwllo</Container>;
-}
+  return (
+    <Container className={classes.content}>
+      <div>{answer}</div>
+      <div>{message}</div>
+      <TextInput
+        id="message"
+        label="Message"
+        name="message"
+        autoFocus
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <LoaderButton
+        isLoading={isLoading}
+        disabled={false}
+        className={classes.submit}
+        onClick={handleClick}
+      >
+        Ask me something!
+      </LoaderButton>
+    </Container>
+  );
+    }

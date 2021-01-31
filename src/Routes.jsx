@@ -8,6 +8,7 @@ const Home = lazy(() => import("./containers/Home/Home"));
 const Login = lazy(() => import("./containers/Login/Login"));
 // const Signup = lazy(() => import("./containers/Signup/Signup"));
 const Logout = lazy(() => import("./containers/Logout/Logout"));
+const NotFound = lazy(() => import("./containers/NotFound/NotFound"));
 
 const renderLoading = () => Loading();
 

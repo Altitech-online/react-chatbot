@@ -30,14 +30,14 @@ export default function Navbar() {
           to="/login"
         />
       )}
-      {!isAuthenticated && (
+      {/* {!isAuthenticated && (
         <BottomNavigationAction
           label="Sign up"
           value="/signup"
           component={Link}
           to="/signup"
         />
-      )}
+      )} */}
       {isAuthenticated && (
         <BottomNavigationAction
           label="Log out"
