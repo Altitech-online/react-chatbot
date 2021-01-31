@@ -8,7 +8,7 @@ import { onError } from "../../libs/errorLib";
 import { useStyles } from "../../libs/hooksLib";
 
 export default function Home() {
-  const [sentiment, setSentiment] = useState("NEUTRAL")
+  const [sentiment, setSentiment] = useState("NEUTRAL");
   const [message, setMessage] = useState("");
   const [answer, setAnswer] = useState();
   const [session, setSession] = useState();
@@ -23,7 +23,6 @@ export default function Home() {
         return;
       }
       try {
-
       } catch (e) {
         onError(e);
       }
@@ -42,31 +41,35 @@ export default function Home() {
     });
     setAnswer(botResponse.generic[0].text);
     setSession(botResponse.session);
-    console.log(botResponse)
+    console.log(botResponse);
     setSentiment(botResponse.Sentiment);
     setIsLoading(false);
   };
 
   return (
     <Container className={classes.content}>
-      <div>{answer}</div>
-      <div>{message}</div>
-      <TextInput
-        id="message"
-        label="Message"
-        name="message"
-        autoFocus
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <LoaderButton
-        isLoading={isLoading}
-        disabled={false}
-        className={classes.submit}
-        onClick={handleClick}
-      >
-        Ask me something!
-      </LoaderButton>
+      <Container className={classes.messages}>
+        <div>{answer}</div>
+        <div>{message}</div>
+      </Container>
+      <Container className={classes.messageContent}>
+        <TextInput
+          id="message"
+          label="Message"
+          name="message"
+          autoFocus
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <LoaderButton
+          isLoading={isLoading}
+          disabled={false}
+          className={classes.submit}
+          onClick={handleClick}
+        >
+          Ask me something!
+        </LoaderButton>
+      </Container>
     </Container>
   );
-    }
+}
