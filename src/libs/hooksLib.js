@@ -39,7 +39,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   content: {
     textAlign: "center",
-    border: "1px black solid",
+    border: "0px black solid",
     height: "90vh",
     flexDirection: "column",
     display: "flex!important",
@@ -54,13 +54,13 @@ export const useStyles = makeStyles((theme) => ({
     height: "20vh",
   },
   messages: {
-    border: "1px black solid",
+    border: "0px black solid",
     height: "70vh",
     justifyContent: "space-between",
   },
   question: {
     border: "0px black solid",
-    borderRadius: "15px",
+    borderRadius: "25px 25px 0px 25px",
     alignSelf: "flex-end",
     height: "10vh",
     margin: "auto",
@@ -68,11 +68,11 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: "right",
     verticleAlign: "middle",
     wordWrap: "break-word",
-    overflowY: "auto"
+    fontSize: "24px"
   },
   answer: {
     border: "0px black solid",
-    borderRadius: "15px",
+    borderRadius: "0px 25px 25px 25px",
     alignSelf: "flex-end",
     height: "10vh",
     margin: "auto",
@@ -80,9 +80,12 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     verticleAlign: "middle",
     wordWrap: "break-word",
-    overflowY: "auto"
+    fontSize: "24px"
   },
   character: {
     height: "45vh"
+  },
+  img: {
+    height: "100%"
   }
 }));
