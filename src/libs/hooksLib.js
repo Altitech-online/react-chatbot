@@ -87,5 +87,20 @@ export const useStyles = makeStyles((theme) => ({
   },
   img: {
     height: "100%"
-  }
+  },
+  mood: {
+    textAlign: "center"
+  },
+  POSITIVE: {
+    backgroundColor: "green"
+  },
+  NEGATIVE: {
+    backgroundColor: "red"
+  },
+  MIXED: {
+    backgroundColor: "blue"
+  },
+  NEUTRAL: {
+    backgroundColor: "grey"
+  },
 }));

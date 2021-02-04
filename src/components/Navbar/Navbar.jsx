@@ -40,6 +40,14 @@ export default function Navbar() {
       {isAuthenticated && (
       <BottomNavigationAction label="Chat" value="/" component={Link} to="/" />
       )}
+            {isAuthenticated && (
+        <BottomNavigationAction
+          label="Lockdown mood"
+          value="/mood"
+          component={Link}
+          to="/mood"
+        />
+      )}
     </BottomNavigation>
   );
 }

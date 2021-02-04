@@ -42,7 +42,7 @@ export default function Home() {
     setSentMessage(message);
 
     try {
-      const botResponse = await API.post("chatbot", "/message", {
+      const botResponse = await API.post("lockdown", "/message", {
         body: {
           message,
           sessionId: session,
@@ -91,7 +91,7 @@ export default function Home() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          autocomplete="off"
+          autoComplete="off"
         />
         <LoaderButton
           isLoading={isLoading}

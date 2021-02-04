@@ -9,6 +9,7 @@ const Login = lazy(() => import("./containers/Login/Login"));
 // const Signup = lazy(() => import("./containers/Signup/Signup"));
 const Logout = lazy(() => import("./containers/Logout/Logout"));
 const NotFound = lazy(() => import("./containers/NotFound/NotFound"));
+const Mood = lazy(() => import("./containers/Mood/Mood"));
 
 const renderLoading = () => Loading();
 
@@ -27,6 +28,9 @@ export default function Routes() {
         </UnauthenticatedRoute> */}
         <AuthenticatedRoute exact path="/logout">
           <Logout />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/mood">
+          <Mood />
         </AuthenticatedRoute>
         <Route>
           <NotFound />

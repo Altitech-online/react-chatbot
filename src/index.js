@@ -18,7 +18,7 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: "chatbot",
+        name: "lockdown",
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION,
       },
