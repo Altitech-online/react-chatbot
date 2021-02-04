@@ -22,7 +22,6 @@ export default function Mood() {
             }
         }
         fetchData();
-        console.log(moods)
     },[]);
 
     const reducedMoods = () => {
@@ -37,12 +36,9 @@ export default function Mood() {
             return (
                 <div className={classes.date} key={date}>
                 <h2>{date}</h2>
-                {moods.map(mood => {
-                    if(new Date(mood.timestamp).toDateString() === date) {
-                        return (
-                            <div className={`${classes.mood} ${mood.sentiment}`}>{mood.sentiment}</div>
-                        )
-                    }
+                {moods.map((mood, index) => {
+                    const data = new Date(mood.timestamp).toDateString() === date && <div key={index} className={`${classes.mood} ${mood.sentiment}`}>{mood.sentiment}</div>
+                    return data    
                 })}
                 </div>
             )
