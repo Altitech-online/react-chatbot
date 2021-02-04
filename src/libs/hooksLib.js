@@ -1,29 +1,30 @@
 
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: 8,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    margin: 1,
+    backgroundColor: "white",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: 1,
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: (3 ,0 ,2),
     alignSelf: "flex-end",
   },
   navbar: {
     alignSelf: "flex-start",
     alignItems: "center",
     height: "10vh",
+    backgroundColor: "#ededed"
   },
   notfound: {
     padding: "80px 0",
@@ -88,19 +89,15 @@ export const useStyles = makeStyles((theme) => ({
   img: {
     height: "100%"
   },
-  mood: {
+  date: {
     textAlign: "center"
   },
-  POSITIVE: {
-    backgroundColor: "green"
-  },
-  NEGATIVE: {
-    backgroundColor: "red"
-  },
-  MIXED: {
-    backgroundColor: "blue"
-  },
-  NEUTRAL: {
-    backgroundColor: "grey"
+  moodContainer: {
+    marginTop: 8,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    flexWrap: "wrap",
   },
 }));

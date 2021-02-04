@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 import { API } from "aws-amplify";
-import { useAppContext } from "../../libs/contextLib";
 import { useStyles } from "../../libs/hooksLib";
 
 export default function Mood() {
     const [moods, setMoods] = useState();
     const [loading, setLoading] = useState(true);
-    const { isAuthenticated } = useAppContext();
     const classes = useStyles();
 
     useEffect(() => {
@@ -37,12 +35,12 @@ export default function Mood() {
         });
         return dates.map(date => {
             return (
-                <div className={classes.mood} key={date}>
+                <div className={classes.date} key={date}>
                 <h2>{date}</h2>
                 {moods.map(mood => {
                     if(new Date(mood.timestamp).toDateString() === date) {
                         return (
-                            <div className={classes.mood.sentiment}>{mood.sentiment}</div>
+                            <div className={`${classes.mood} ${mood.sentiment}`}>{mood.sentiment}</div>
                         )
                     }
                 })}
@@ -51,7 +49,7 @@ export default function Mood() {
         })
     }
     return (
-    <div className={classes.paper}>
+    <div className={classes.moodContainer}>
         {!loading && moods && reducedMoods()}
     </div>
     );

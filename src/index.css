@@ -20,3 +20,19 @@ input.form-control {
 input[type=file] {
   width: 100%;
 }
+
+.POSITIVE {
+  background-color: rgb(113, 199, 113);
+}
+
+.NEGATIVE {
+  background-color: rgb(209, 116, 116);
+}
+
+.MIXED {
+  background-color: rgb(124, 124, 212);
+}
+
+.NEUTRAL {
+  background-color: rgb(212, 212, 212);
+}
