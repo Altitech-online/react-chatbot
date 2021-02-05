@@ -53,6 +53,7 @@ export const useStyles = makeStyles(() => ({
   },
   messageContent: {
     height: "20vh",
+    maxWidth: "550px!important"
   },
   messages: {
     border: "0px black solid",
