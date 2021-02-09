@@ -48,7 +48,7 @@ export default function Home() {
           sessionId: session,
         },
       });
-      setAnswer(botResponse.generic[0].text);
+      setAnswer(botResponse.generic[0].text.replace(botResponse.Sentiment,''));
       setSession(botResponse.session);
       setSentiment(botResponse.Sentiment);
       setIsLoading(false);
