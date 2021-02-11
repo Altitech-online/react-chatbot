@@ -12,6 +12,7 @@ import sad from "../../pictures/sad_gir.png";
 import happy from "../../pictures/gir_happy.png";
 import sit from "../../pictures/gir_sitting.png";
 import dancing from "../../pictures/dancing_gir.gif";
+import bot from "../../pictures/gir_robot.png";
 
 export default function Home() {
   const [sentiment, setSentiment] = useState("NEUTRAL");
@@ -54,7 +55,7 @@ export default function Home() {
       setIsLoading(false);
     } catch (e) {
       setAnswer('Something weird just happened');
-      setSentiment("NEUTRAL");
+      setSentiment("BROKEN");
       setIsLoading(false);
       console.log(e)
     }
@@ -77,6 +78,7 @@ export default function Home() {
           {sentiment === "NEGATIVE" && answer !== ":dancing:"  && <img src={sad} className={classes.img} alt="Bot" />}
           {sentiment === "POSITIVE" && answer !== ":dancing:"  && <img src={happy} className={classes.img} alt="Bot" />}
           {sentiment === "MIXED" && answer !== ":dancing:" && <img src={sit} className={classes.img} alt="Bot" />}
+          {sentiment === "BROKEN" && answer !== ":dancing:" && <img src={bot} className={classes.img} alt="Bot" />}
           {answer === ":dancing:"  && <img src={dancing} className={classes.img} alt="Bot" />}
         </Container>
         <Container className={classes.answer}>{isLoading ? <Typing/> :  answer }</Container>

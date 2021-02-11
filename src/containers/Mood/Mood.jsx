@@ -36,7 +36,7 @@ export default function Mood() {
             return (
                 <div className={classes.date} key={date}>
                 <h2>{date}</h2>
-                {moods.map((mood, index) => {
+                {moods.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)).map((mood, index) => {
                     const data = new Date(mood.timestamp).toDateString() === date && <div key={index} className={`${classes.mood} ${mood.sentiment}`}>{mood.sentiment}</div>
                     return data    
                 })}
