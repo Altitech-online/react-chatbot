@@ -21,6 +21,8 @@ export default function Home() {
   const [answer, setAnswer] = useState();
   const [session, setSession] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [keyPhrases, setKeyPhrases] = useState();
+  const [entities, setEntities] = useState();
   const { isAuthenticated } = useAppContext();
   const classes = useStyles();
 
@@ -52,6 +54,15 @@ export default function Home() {
       setAnswer(botResponse.generic[0].text.replace(botResponse.Sentiment,''));
       setSession(botResponse.session);
       setSentiment(botResponse.Sentiment);
+      const phrases = botResponse.KeyPhrases.map(phrase => {
+        return phrase.Text
+      }).join(", ");
+      setKeyPhrases(phrases);
+      const ents = botResponse.Entities.map(ent => {
+        return `Type: ${ent.Type} - Text: ${ent.Text}`
+      }).join(", ");
+      setEntities(ents);
+      console.log(botResponse)
       setIsLoading(false);
     } catch (e) {
       setAnswer('Something weird just happened');
@@ -82,7 +93,7 @@ export default function Home() {
           {answer === ":dancing:"  && <img src={dancing} className={classes.img} alt="Bot" />}
         </Container>
         <Container className={classes.answer}>{isLoading ? <Typing/> :  answer }</Container>
-        <Container className={classes.question}>{sentMessage}</Container>
+        <Container className={classes.question}>{sentMessage} <p className={classes.extraText}>Entities: {entities}</p> <p className={classes.extraText}>Key phrases: {keyPhrases}</p></Container>
       </Container>
       <Container className={classes.messageContent}>
         <TextInput

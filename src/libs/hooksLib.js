@@ -101,4 +101,7 @@ export const useStyles = makeStyles(() => ({
     justifyContent: "space-around",
     flexWrap: "wrap",
   },
+  extraText: {
+    fontSize: "14px"
+  }
 }));
